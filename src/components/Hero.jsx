@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaGithub, FaLinkedin, FaDocker, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaDocker, FaEnvelope, FaMedium } from 'react-icons/fa';
 
 const Hero = () => {
   const [text, setText] = useState('');
