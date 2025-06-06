@@ -1,0 +1,55 @@
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* App container */
+.app-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #0f172a;
+  color: white;
+}
+
+/* Ensure no scrolling on the body */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+/* Particles container */
+#tsparticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Content wrapper */
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
