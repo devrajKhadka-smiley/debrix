@@ -62,12 +62,12 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? "bg-gray-950 backdrop-blur-lg shadow-xl"
-          : "bg-gray-950 backdrop-blur-md"
+          ? "bg-transparent backdrop-blur-lg shadow-xl"
+          : "bg-transparent backdrop-blur-md"
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between border border-gray-800/80 rounded-lg mx-2 my-4 p-4 h-16 md:h-20 bg-gray-950/90 backdrop-blur-sm">
+        <div className="flex items-center justify-between border border-gray-800/80 rounded-lg mx-2 my-4 p-4 h-16 md:h-20 bg-transparent backdrop-blur-sm">
           {/* Logo and Brand */}
           <div className="flex items-center space-x-2">
             <div className="flex items-center justify-center w-10 h-10">

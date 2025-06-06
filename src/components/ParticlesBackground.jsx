@@ -8,7 +8,7 @@ export const ParticlesBackground = () => {
     const ctx = canvas.getContext('2d');
     let animationFrameId;
     let particles = [];
-    const particleCount = 50;
+    const particleCount = 60; // More particles for better visibility
 
     // Set canvas size
     const resizeCanvas = () => {
@@ -20,13 +20,15 @@ export const ParticlesBackground = () => {
     const initParticles = () => {
       particles = [];
       for (let i = 0; i < particleCount; i++) {
+        const hue = 200 + Math.random() * 40; // Blueish hue
+        const opacity = Math.random() * 0.6 + 0.4; // 0.4 to 1.0 opacity
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          size: Math.random() * 2 + 1,
+          size: Math.random() * 3 + 1, // Slightly larger particles
           speedX: Math.random() * 2 - 1,
           speedY: Math.random() * 2 - 1,
-          color: `rgba(59, 130, 246, ${Math.random() * 0.5 + 0.2})`
+          color: `hsla(${hue}, 80%, 70%, ${opacity})` // Lighter, more vibrant blue
         });
       }
     };
@@ -42,9 +44,10 @@ export const ParticlesBackground = () => {
           const dy = particles[i].y - particles[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
           
-          if (distance < 100) {
-            ctx.strokeStyle = `rgba(59, 130, 246, ${1 - distance / 100})`;
-            ctx.lineWidth = 0.5;
+          if (distance < 150) { // Increased connection distance
+            const opacity = 0.6 * (1 - distance / 150); // Smoother fade
+            ctx.strokeStyle = `rgba(100, 149, 237, ${opacity})`; // Lighter blue
+            ctx.lineWidth = 1; // Slightly thicker lines
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -53,11 +56,25 @@ export const ParticlesBackground = () => {
         }
       }
       
-      // Draw particles
+      // Draw particles with glow effect
       particles.forEach(particle => {
+        // Glow effect
+        const gradient = ctx.createRadialGradient(
+          particle.x, particle.y, 0,
+          particle.x, particle.y, particle.size * 2
+        );
+        gradient.addColorStop(0, particle.color);
+        gradient.addColorStop(1, 'rgba(100, 149, 237, 0)');
+        
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size * 2, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Core of the particle
         ctx.fillStyle = particle.color;
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.arc(particle.x, particle.y, particle.size * 0.6, 0, Math.PI * 2);
         ctx.fill();
       });
     };
@@ -104,18 +121,27 @@ export const ParticlesBackground = () => {
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        zIndex: 0,
-        backgroundColor: '#0f172a'
-      }}
-    />
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      zIndex: 0,
+      backgroundColor: '#000000'
+    }}>
+      <canvas
+        ref={canvasRef}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 1
+        }}
+      />
+    </div>
   );
 };
 

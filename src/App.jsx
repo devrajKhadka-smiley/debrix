@@ -1,15 +1,13 @@
 import { useEffect } from 'react';
-import './App.css';
 import Navbar from './components/Navbar';
+import Hero from './components/Hero';
 import ParticlesBackground from './components/ParticlesBackground';
+import './App.css';
 
 function App() {
   useEffect(() => {
-    // Prevent scrolling on the body
     document.body.style.overflow = 'hidden';
-    
     return () => {
-      // Re-enable scrolling when component unmounts
       document.body.style.overflow = 'auto';
     };
   }, []);
@@ -19,7 +17,7 @@ function App() {
       <ParticlesBackground />
       <div className="content-wrapper">
         <Navbar />
-        {/* Add your page content here */}
+        <Hero />
       </div>
     </div>
   );
