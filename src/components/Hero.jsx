@@ -76,6 +76,9 @@ const Hero = () => {
           <a href="https://hub.docker.com/repositories/sye9" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300">
             <FaDocker size={20} />
           </a>
+          <a href="https://medium.com/@sye09" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300">
+            <FaMedium size={20} />
+          </a>
           {/* <a href="mailto:your.email@example.com" className="text-gray-300 hover:text-white transition-colors duration-300">
             <FaEnvelope size={20} />
           </a> */}
