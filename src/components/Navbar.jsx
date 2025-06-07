@@ -55,6 +55,21 @@ const Navbar = () => {
     }
   }, [isMobileMenuOpen]);
   
+  // Close mobile menu when route changes
+  useEffect(() => {
+    const unlisten = () => {
+      setIsMobileMenuOpen(false);
+    };
+    
+    // Close menu when location changes
+    unlisten();
+    
+    // Cleanup
+    return () => {
+      unlisten();
+    };
+  }, [location.pathname]);
+  
   // Simple fade animation for the container
   const containerVariants = {
     hidden: { opacity: 0 },
