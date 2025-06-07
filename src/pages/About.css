@@ -1,0 +1,373 @@
+/* Cursor Follower */
+.cursor-follower {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: 
+    transform 0.1s ease-out,
+    width 0.3s ease,
+    height 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+  z-index: 9999;
+  will-change: transform;
+  backdrop-filter: blur(1px);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.cursor-follower.cursor-hover {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 1);
+}
+
+/* Keep default cursor */
+html, body {
+  cursor: auto;
+}
+
+/* Add a small delay to the cursor follower for a smoother effect */
+.cursor-follower {
+  transition: 
+    transform 0.3s cubic-bezier(0.15, 0.8, 0.3, 1),
+    width 0.3s cubic-bezier(0.15, 0.8, 0.3, 1),
+    height 0.3s cubic-bezier(0.15, 0.8, 0.3, 1);
+}
+
+/* Modern About Page Styling */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #333;
+}
+
+/* Hero Section */
+.about-hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+  border-radius: 15px;
+  margin: 6rem auto 3rem;
+  max-width: 1200px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+/* Add padding to the top of the about container to account for fixed navbar */
+.about-container {
+  padding-top: 2rem;
+}
+
+.profile-card {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.about-hero .title {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-bottom: 1.5rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #3498db;
+  transform: translateY(-3px);
+}
+
+/* About Section */
+.about-section {
+  margin-bottom: 4rem;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  position: relative;
+  display: inline-block;
+}
+
+.about-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: #3498db;
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* Skills Section */
+.skills-section {
+  margin-bottom: 4rem;
+}
+
+.skills-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  color: #2c3e50;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.skills-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: #3498db;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.skill-item {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.skill-icon {
+  font-size: 2.5rem;
+  color: #3498db;
+  margin-bottom: 1rem;
+}
+
+.skill-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 10px;
+  background: #ecf0f1;
+  border-radius: 5px;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+
+.skill-level {
+  height: 100%;
+  background: #3498db;
+  border-radius: 5px;
+  transition: width 1s ease-in-out;
+}
+
+.skill-percent {
+  display: block;
+  text-align: right;
+  font-weight: bold;
+  color: #7f8c8d;
+}
+
+/* Experience Section */
+.experience-section {
+  margin-bottom: 4rem;
+}
+
+.experience-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  color: #2c3e50;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.experience-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: #3498db;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  background: #3498db;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1.5px;
+}
+
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+  margin: 20px 0;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+
+.timeline-content {
+  padding: 20px 30px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item h3 {
+  margin: 0 0 5px 0;
+  color: #2c3e50;
+  font-size: 1.2rem;
+}
+
+.timeline-item h4 {
+  margin: 0 0 5px 0;
+  color: #3498db;
+  font-size: 1rem;
+}
+
+.timeline-item .period {
+  display: inline-block;
+  padding: 2px 10px;
+  background: #e1f0fa;
+  color: #3498db;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.timeline-item p {
+  margin: 10px 0 0 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .timeline::after {
+    left: 31px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  .timeline-item:nth-child(even) {
+    left: 0;
+  }
+
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-container {
+    padding: 1rem;
+  }
+  
+  .profile-card {
+    padding: 1rem;
+  }
+  
+  .about-hero h1 {
+    font-size: 2rem;
+  }
+}
