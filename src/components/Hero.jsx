@@ -1,20 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import { FaGithub, FaLinkedin, FaDocker, FaEnvelope, FaMedium } from 'react-icons/fa';
+import React, { useState, useEffect } from "react";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaDocker,
+  FaEnvelope,
+  FaMedium,
+} from "react-icons/fa";
 
 const Hero = () => {
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
   const [showCursor, setShowCursor] = useState(true);
 
-  const roles = ['Backend Developer', 'Graphic Designer', 'Web Developer'];
+  const roles = [
+    ".Net Development",
+    "Basic Graphic Designining",
+    "React",
+    "Web Development",
+  ];
   const currentRole = roles[loopNum % roles.length];
 
   useEffect(() => {
-    // Cursor blink effect
+    document.title = "Debrix || Home Page";
+  }, []);
+
+  useEffect(() => {
     const cursorInterval = setInterval(() => {
-      setShowCursor(prev => !prev);
+      setShowCursor((prev) => !prev);
     }, 500);
 
     // Typing effect
@@ -22,15 +36,17 @@ const Hero = () => {
       const i = loopNum % roles.length;
       const fullText = roles[i];
 
-      setText(isDeleting
-        ? fullText.substring(0, text.length - 1)
-        : fullText.substring(0, text.length + 1));
+      setText(
+        isDeleting
+          ? fullText.substring(0, text.length - 1)
+          : fullText.substring(0, text.length + 1)
+      );
 
       setTypingSpeed(isDeleting ? 30 : 150);
 
       if (!isDeleting && text === fullText) {
         setTimeout(() => setIsDeleting(true), 2000);
-      } else if (isDeleting && text === '') {
+      } else if (isDeleting && text === "") {
         setIsDeleting(false);
         setLoopNum(loopNum + 1);
       }
@@ -59,7 +75,11 @@ const Hero = () => {
           <span>I'm a </span>
           <span className="ml-2 text-red-400 font-light min-w-[250px] md:min-w-[300px] h-10 md:h-12 flex items-center justify-center">
             {text}
-            <span className={`h-8 w-1 bg-red-400 ml-1 inline-block ${showCursor ? 'opacity-100' : 'opacity-0'}`}></span>
+            <span
+              className={`h-8 w-1 bg-red-400 ml-1 inline-block ${
+                showCursor ? "opacity-100" : "opacity-0"
+              }`}
+            ></span>
           </span>
         </div>
       </div>
@@ -67,16 +87,36 @@ const Hero = () => {
       {/* Social Icons - Vertical on desktop, horizontal at bottom on mobile */}
       <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 md:left-8 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:translate-x-0 z-10">
         <div className="flex flex-row space-x-6 md:space-x-0 md:space-y-6 md:flex-col">
-          <a href="https://github.com/devrajKhadka-smiley" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300">
+          <a
+            href="https://github.com/devrajKhadka-smiley"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-white transition-colors duration-300"
+          >
             <FaGithub size={20} />
           </a>
-          <a href="https://www.linkedin.com/in/dev-raj-khadka/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300">
+          <a
+            href="https://www.linkedin.com/in/dev-raj-khadka/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-white transition-colors duration-300"
+          >
             <FaLinkedin size={20} />
           </a>
-          <a href="https://hub.docker.com/repositories/sye9" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300">
+          <a
+            href="https://hub.docker.com/repositories/sye9"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-white transition-colors duration-300"
+          >
             <FaDocker size={20} />
           </a>
-          <a href="https://medium.com/@sye09" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300">
+          <a
+            href="https://medium.com/@sye09"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-white transition-colors duration-300"
+          >
             <FaMedium size={20} />
           </a>
           {/* <a href="mailto:your.email@example.com" className="text-gray-300 hover:text-white transition-colors duration-300">
