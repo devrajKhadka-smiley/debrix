@@ -19,7 +19,6 @@
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
   opacity: 0;
   visibility: hidden;
-  mix-blend-mode: difference;
 }
 
 /* Show cursor when visible */
@@ -34,7 +33,6 @@
   height: 50px;
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 1);
-  backdrop-filter: blur(2px);
 }
 
 /* Hide cursor on touch devices */

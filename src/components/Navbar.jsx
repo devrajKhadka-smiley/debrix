@@ -123,20 +123,28 @@ const Navbar = () => {
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Projects', path: '/projects' }
   ];
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
           ? "bg-transparent backdrop-blur-lg shadow-xl"
           : "bg-transparent backdrop-blur-md"
-        }`}
+      }`}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50
+      }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between border border-gray-800/80 rounded-lg mx-2 my-4 p-4 h-16 md:h-20 bg-transparent backdrop-blur-sm">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="flex items-center justify-between border border-gray-800/80 rounded-lg mx-2 my-3 p-3 h-14 md:h-18 bg-transparent backdrop-blur-sm">
           {/* Logo and Brand */}
           <div className="flex items-center space-x-2">
             <Link to="/" className="flex items-center justify-center w-10 h-10">
@@ -145,7 +153,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-2 mx-auto">
+          <div className="hidden md:flex items-center space-x-2 ml-auto">
             {navItems.map((item) => (
               <NavLink 
                 key={item.name} 
@@ -189,7 +197,7 @@ const Navbar = () => {
                 height: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
                 opacity: { duration: 0.3 }
               }}
-              className="mx-6 rounded-xl relative overflow-hidden"
+              className="mx-8 rounded-xl relative overflow-hidden"
               style={{
                 background: 'rgba(17, 24, 39, 0.35)',
                 border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -228,7 +236,7 @@ const Navbar = () => {
               {/* Navigation items */}
               {showNavItems && (
                 <motion.div 
-                  className="relative z-10 px-2 py-1.5 w-full flex flex-col items-center space-y-1"
+                  className="relative z-10 px-2 py-3 w-full flex flex-col items-center space-y-1"
                   variants={containerVariants}
                   initial="hidden"
                   animate="show"
@@ -246,17 +254,17 @@ const Navbar = () => {
                           setIsMobileMenuOpen(false);
                           window.scrollTo({ top: 0, behavior: 'smooth' });
                         }}
-                        className="relative py-0.5 px-1 transition-colors duration-200 w-full text-center text-sm"
+                        className="relative py-2 px-2 transition-colors duration-200 w-full text-center text-base font-medium"
                         style={location.pathname === item.path ? activeLinkStyle : {}}
                       >
                         <motion.span 
-                          className="relative z-10 flex items-center"
+                          className="relative z-10 flex items-center justify-center"
                           whileHover={hoverEffect}
                           whileTap={tapEffect}
                         >
                           {item.name}
                           <motion.span 
-                            className="absolute -bottom-0.5 left-1/2 transform -translate-x-1/2 w-0 h-[0.5px] bg-white"
+                            className="absolute -bottom-0.5 left-1/2 transform -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500"
                             initial={{ width: 0 }}
                             animate={{ 
                               width: location.pathname === item.path ? '100%' : '0%',
