@@ -67,8 +67,20 @@ function App() {
       <div className="app-container" ref={appRef}>
         <ScrollHandler onRouteChange={(isHome) => setIsHomePage(isHome)} />
         <CursorFollower />
-        <ParticlesBackground />
-        <div className={`content-wrapper ${isHomePage ? 'home-page' : ''}`}>
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 0
+        }}>
+          <ParticlesBackground />
+        </div>
+        <div className={`content-wrapper ${isHomePage ? 'home-page' : ''}`} style={{
+          position: 'relative',
+          zIndex: 1
+        }}>
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />

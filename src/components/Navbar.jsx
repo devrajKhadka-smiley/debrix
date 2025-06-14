@@ -194,7 +194,7 @@ const Navbar = () => {
               transition={{
                 duration: 0.4,
                 ease: [0.22, 1, 0.36, 1],
-                height: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
+                height: { duration: 0.3, ease: [0.20, 1, 0.34, 1] },
                 opacity: { duration: 0.3 }
               }}
               className="mx-8 rounded-xl relative overflow-hidden"

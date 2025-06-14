@@ -1,27 +1,26 @@
+// tailwind.config.js
+
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  darkMode: 'class',
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class", // Enables class-based dark mode
   theme: {
     extend: {
       colors: {
         dark: {
-          primary: '#1a1b1e',
-          secondary: '#2c2d31',
-          accent: '#3b82f6',
+          primary: "#1a1b1e",
+          secondary: "#2c2d31",
+          accent: "#3b82f6",
           text: {
-            primary: '#ffffff',
-            secondary: '#a1a1aa',
+            primary: "#ffffff",
+            secondary: "#a1a1aa",
           },
         },
       },
       animation: {
-        'spin-slow': 'spin 20s linear infinite',
+        "spin-slow": "spin 20s linear infinite",
       },
     },
   },
   plugins: [],
-} 
+};
